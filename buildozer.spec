@@ -64,10 +64,10 @@ android.ndk = 25b
 
 # Jalur ke p4a (Python for Android) dan SDK/NDK jika Anda mengelolanya secara manual.
 # Biasanya, ini bisa dikosongkan karena Buildozer akan mengunduh dan mengelolanya.
-android.p4a_dir = 
-android.sdk = 
-android.ndk_path = 
-android.sdk_path = 
+p4a.source_dir = 
+#android.sdk = 
+#android.ndk_path = 
+#android.sdk_path = 
 
 # Izin Android yang dibutuhkan aplikasi Anda.
 # Tambahkan izin lain yang relevan seperti CAMERA, ACCESS_FINE_LOCATION, dll.
