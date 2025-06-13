@@ -25,6 +25,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildozer-
 
+    - name: Clean previous builds
+      run: |
+        buildozer android clean
+        
     - name: Build APK
       run: |
         buildozer -v android debug
