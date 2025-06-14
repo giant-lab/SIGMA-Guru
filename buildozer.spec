@@ -34,25 +34,30 @@ version = 1.0
 requirements = 
     python3,
     kivy==2.3.0,
-    kivymd==1.2.0,
+    kivymd==1.1.1,
     pandas,
-    numpy,
-    android
+    openpyxl,
+    plyer,  # Diperbaiki dari 'flyer' ke 'plyer'
+    android,
+    libiconv  # Diperlukan untuk kompatibilitas Android
 
 # Konfigurasi jam Kivy
 osx.kivy_clock = interrupt
 linux.kivy_clock = interrupt
 win.kivy_clock = interrupt
 
+[buildozer]
+p4a.branch = stable
+log_level = 2  # Level log lebih detail
+
 # Konfigurasi Android
-android.archs = arm64-v8a
+android.arch = arm64-v8a  # Diperbaiki dari 'archs' ke 'arch'
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
 
 # Izin
 android.permissions = 
-    INTERNET,
     WRITE_EXTERNAL_STORAGE,
     READ_EXTERNAL_STORAGE
 
@@ -62,15 +67,22 @@ android.manifest_application_arguments = android:requestLegacyExternalStorage="t
 android.manifest_features = 
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
 
-# Konfigurasi iOS (opsional, bisa diabaikan jika hanya Android)
-ios.kivy_ios_dir = ../kivy-ios
-ios.appname = SiGuru
+# Konfigurasi tambahan untuk optimasi
+android.allow_backup = False
+android.enable_androidx = True
+android.ndk_api = 23
 
 # Orientasi
 orientation = portrait
 
-# Layar penuh
+# Layar penung
 fullscreen = 0
 
-# Level log
-log_level = 2
+# Presplash (opsional)
+#presplash.filename = %(source.dir)s/images/splash.png
+
+# Icon (opsional)
+#icon.filename = %(source.dir)s/images/icon.png
+
+# Batasi jumlah arsitektur untuk mempercepat build
+android.arch = arm64-v8a
